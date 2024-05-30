@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>EXP Magic Number Calculator</title>
+</head>
+
+<body>
+    MTD Numbers
+
+    <form id="EstTraffic">
+        <div class="form-item">
+            
+            <input type="number" name="LyTraffic" id="LyTraffic">
+            <label for="LyTraffic">LY Traffic</label>
+        </div>
+
+        <div class="separator">X</div>
+
+        <div class="form-item">
+            <input type="number" name="MtdTraffic" id="MtdTraffic">
+            <label for="MtdTraffic">% to MTD Traffic</label>
+        </div>
+
+        <div class="separator">=</div>
+
+        <div class="form-item">
+            
+            <input type="number" name="EstTraff" id="EstTraff">
+            <label for="EstTraff">Estimated Traffic</label>
+        </div>
+        <input TYPE="button" id="calc1" value="Calculate">
+        <input type="button" id="reset1" value="Clear">
+    </form>
+    
+
+
+    <form id="EstTransGoal">
+        <div class="form-item">
+            <input type="number" name="EstTraff2" id="EstTraff2">
+            <label for="EstTraff2">Estimated Traffic</label>
+        </div>
+
+        <div class="separator">X</div> <form id="EstTraffic">
+
+        <div class="form-item"> 
+            <input type="number" name="MtdConv" id="MtdConv">
+            <label for="MtdConv">MTD Conversion</label>
+        </div>
+    
+        <div class="separator">=</div>
+    
+        <div class="form-item">
+            <input type="number" name="EstTransGoalMtd" id="EstTransGoalMtd">
+            <label for="EstTransGoalMtd">Estimated Transaction Goal</label>
+        </div>
+        <input TYPE="button" id="calc2" value="Calculate">
+        <input type="button" id="reset2" value="Clear">
+    </form>
+
+    <form id="AdsGoal">
+        <div class="form-item">
+            <input type="number" name="Plan" id="Plan">
+            <label for="Plan">Plan</label>
+         </div>
+    
+        <div class="separator">/</div>
+    
+        <div class="form-item">
+            <input type="number" name="EstTransGoal2" id="EstTransGoal2">
+            <label for="EstTransGoal2">Estimated Transaction Goal</label>
+        </div>
+    
+        <div class="separator">=</div>
+    
+        <div class="form-item">
+            <input type="number" name="AdsGoalMtd" id="AdsGoalMtd">
+            <label for="AdsGoalMtd">ADS Goal</label>
+        </div>
+        <input TYPE="button" id="calc3" value="Calculate">
+        <input type="button" id="reset3" value="Clear">
+    </form>
+
+    <hr>
+    Conversion Goal
+
+    <form id="TransConvUp">
+        <div class="form-item">
+            <input type="number" name="LyConvUp" id="LyConvUp">
+            <label for="LyConvUp">LY Conversion + lift</label>
+        </div>
+
+        <div class="separator">X</div> 
+
+    <form id="EstTraffic">
+        <div class="form-item"> 
+            <input type="number" name="EstTraff4" id="EstTraff4">
+            <label for="EstTraffConv">Estimated Traffic</label>
+        </div>
+    
+        <div class="separator">=</div>
+    
+        <div class="form-item">
+            <input type="number" name="TransGoal" id="TransGoal">
+            <label for="TransGoal">Transaction Goal</label>
+        </div>
+        <input TYPE="button" id="calc4" value="Calculate">
+        <input type="button" id="reset4" value="Clear">
+    </form>
+
+    <form id="AdsConvUp">
+        <div class="form-item">
+            <input type="number" name="Plan2" id="Plan2">
+            <label for="Plan2">Plan</label>
+        </div>
+
+        <div class="separator">/</div> 
+
+    <form id="EstTraffic">
+        <div class="form-item"> 
+            <input type="number" name="TransGoal2" id="TransGoal2">
+            <label for="TransGoal2">Transaction Goal</label>
+        </div>
+    
+        <div class="separator">=</div>
+    
+        <div class="form-item">
+            <input type="number" name="AdsUp" id="AdsUp">
+            <label for="AdsConvUp">ADS</label>
+        </div>
+        <input TYPE="button" id="calc5" value="Calculate">
+        <input type="button" id="reset5" value="Clear">
+    </form>
+
+    <hr>
+    Flat/LY Conversion
+
+    <form id="TransConvFlat">
+        <div class="form-item">
+            <input type="number" name="LyConvFlat" id="LyConvFlat">
+            <label for="LyConvFlat">LY Conversion + lift</label>
+        </div>
+
+        <div class="separator">X</div> 
+
+    <form id="EstTraffic">
+        <div class="form-item"> 
+            <input type="number" name="EstTraff5" id="EstTraff5">
+            <label for="EstTraff5">Estimated Traffic</label>
+        </div>
+    
+        <div class="separator">=</div>
+    
+        <div class="form-item">
+            <input type="number" name="TransGoalFlat" id="TransGoalFlat">
+            <label for="TransGoalFlat">Transaction Goal</label>
+        </div>
+        <input TYPE="button" id="calc6" value="Calculate">
+        <input type="button" id="reset6" value="Clear">
+    </form>
+
+    <form id="AdsConvFlat">
+        <div class="form-item">
+            <input type="number" name="Plan3" id="Plan3">
+            <label for="Plan3">Plan</label>
+        </div>
+
+        <div class="separator">/</div> 
+
+    <form id="EstTraffic">
+        <div class="form-item"> 
+            <input type="number" name="TransGoalFlat2" id="TransGoalFlat2">
+            <label for="TransGoalFlat2">Transaction Goal</label>
+        </div>
+    
+        <div class="separator">=</div>
+    
+        <div class="form-item">
+            <input type="number" name="AdsFlat" id="AdsFlat">
+            <label for="AdsFlat">ADS</label>
+        </div>
+        <input TYPE="button" id="calc7" value="Calculate">
+        <input type="button" id="reset7" value="Clear">
+    </form>
+
+   
+    <input type="button" id="resetAll" value="Reset All">
+<script src="index.js"></script>
+</body>
+</html>
