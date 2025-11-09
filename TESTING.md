@@ -4,11 +4,23 @@ This document explains the testing setup for the EXP Magic Number Calculator.
 
 ## Test Framework
 
-The project uses **Jest** as the testing framework with the following features:
+The project uses two complementary testing frameworks:
+- **Jest**: Unit and integration testing for business logic
+- **Playwright**: End-to-end (E2E) testing for full browser workflows
+
+### Jest (Unit/Integration Tests)
 - Unit testing for all calculation functions
 - Integration testing for real-world scenarios
 - Code coverage reporting
 - 100% coverage of business logic
+
+### Playwright (E2E Tests)
+- Full browser automation testing
+- Tests actual user interactions
+- Validates DOM manipulation and UI behavior
+- Tests all 7 calculation workflows
+- Validates error handling in the browser
+- Tests auto-fill and reset functionality
 
 ## Running Tests
 
@@ -17,25 +29,41 @@ The project uses **Jest** as the testing framework with the following features:
 npm install
 ```
 
-### Run All Tests
+### Run Unit Tests Only
 ```bash
 npm test
 ```
 
+### Run E2E Tests Only
+```bash
+npm run test:e2e
+```
+
+### Run All Tests (Unit + E2E)
+```bash
+npm run test:all
+```
+
 ### Run Tests in Watch Mode
 ```bash
-npm run test:watch
+npm run test:watch              # Unit tests
+npm run test:e2e:headed         # E2E tests with visible browser
+npm run test:e2e:ui             # E2E tests with Playwright UI
 ```
 
 ### Run Tests with Coverage Report
 ```bash
-npm run test:coverage
+npm run test:coverage           # Unit test coverage
+```
+
+### View E2E Test Report
+```bash
+npm run test:e2e:report         # Opens HTML report in browser
 ```
 
 ## Test Coverage
 
-The test suite currently includes:
-
+### Unit/Integration Tests (Jest)
 - **61 test cases** covering:
   - All 4 calculation functions
   - All 4 validation functions
@@ -48,6 +76,25 @@ The test suite currently includes:
   - 95%+ of branches
   - 100% of functions
   - 100% of lines
+
+### E2E Tests (Playwright)
+- **43 test cases** covering:
+  - All 7 calculation workflows through the UI
+  - Full MTD workflow (equations 1 → 2 → 3)
+  - Edge cases (decimals, small %, large numbers)
+  - Error message display and validation
+  - Division by zero error handling
+  - HTML5 validation attributes
+  - Auto-fill synchronization across forms
+  - All 7 individual reset buttons
+  - "Reset All" functionality
+  - Visual feedback (success borders)
+  - Readonly field protection
+
+### Total Test Coverage
+- **104 total tests** (61 unit + 43 E2E)
+- **All critical user flows tested end-to-end**
+- **Both business logic AND UI interactions validated**
 
 ## Test Structure
 
@@ -115,7 +162,7 @@ test('should throw error for zero transactions', () => {
 });
 ```
 
-### Integration Test
+### Integration Test (Jest)
 ```javascript
 test('should calculate full MTD workflow', () => {
     const estTraffic = calculateEstimatedTraffic(50000, 45);
@@ -126,6 +173,29 @@ test('should calculate full MTD workflow', () => {
 
     const adsGoal = calculateADSGoal(75000, transGoal);
     expect(adsGoal).toBe(95.18);
+});
+```
+
+### E2E Test (Playwright)
+```javascript
+test('Full MTD workflow: Equation 1 → 2 → 3', async ({ page }) => {
+    await page.goto('/');
+
+    // Step 1: Calculate Estimated Traffic
+    await page.fill('#LyTraffic', '50000');
+    await page.fill('#MtdTraffic', '45');
+    await page.click('#calc1');
+    await expect(page.locator('#EstTraff')).toHaveValue('22500');
+
+    // Step 2: Calculate Transaction Goal
+    await page.fill('#MtdConv', '3.5');
+    await page.click('#calc2');
+    await expect(page.locator('#EstTransGoalMtd')).toHaveValue('788');
+
+    // Step 3: Calculate ADS Goal
+    await page.fill('#Plan', '75000');
+    await page.click('#calc3');
+    await expect(page.locator('#AdsGoalMtd')).toHaveValue('95.18');
 });
 ```
 
@@ -155,9 +225,11 @@ When adding new calculations:
 
 This project includes automated testing via GitHub Actions. Every push to `main` and every pull request automatically runs:
 
-1. ✅ Full test suite on Node.js 18.x and 20.x
+1. ✅ Unit tests (Jest) on Node.js 18.x and 20.x
 2. ✅ Coverage report generation
-3. ✅ Optional Codecov integration
+3. ✅ E2E tests (Playwright) in headless Chromium
+4. ✅ Playwright test report uploads
+5. ✅ Optional Codecov integration
 
 **Workflow File:** `.github/workflows/test.yml`
 
