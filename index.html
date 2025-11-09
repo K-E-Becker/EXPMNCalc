@@ -8,30 +8,31 @@
 </head>
 
 <body>
-    MTD Numbers
+    <h1>EXP Magic Number Calculator</h1>
+
+    <section>
+        <h2>MTD Numbers</h2>
 
     <form id="EstTraffic">
         <div class="form-item">
-            
-            <input type="number" name="LyTraffic" id="LyTraffic">
+            <input type="number" name="LyTraffic" id="LyTraffic" min="0" step="any" required>
             <label for="LyTraffic">LY Traffic</label>
         </div>
 
         <div class="separator">X</div>
 
         <div class="form-item">
-            <input type="number" name="MtdTraffic" id="MtdTraffic">
+            <input type="number" name="MtdTraffic" id="MtdTraffic" min="0" max="100" step="any" required>
             <label for="MtdTraffic">% to MTD Traffic</label>
         </div>
 
         <div class="separator">=</div>
 
         <div class="form-item">
-            
-            <input type="number" name="EstTraff" id="EstTraff">
+            <input type="number" name="EstTraff" id="EstTraff" min="0" step="any" readonly>
             <label for="EstTraff">Estimated Traffic</label>
         </div>
-        <input TYPE="button" id="calc1" value="Calculate">
+        <input type="button" id="calc1" value="Calculate">
         <input type="button" id="reset1" value="Clear">
     </form>
     
@@ -39,154 +40,159 @@
 
     <form id="EstTransGoal">
         <div class="form-item">
-            <input type="number" name="EstTraff2" id="EstTraff2">
+            <input type="number" name="EstTraff2" id="EstTraff2" min="0" step="any">
             <label for="EstTraff2">Estimated Traffic</label>
         </div>
 
-        <div class="separator">X</div> <form id="EstTraffic">
+        <div class="separator">X</div>
 
-        <div class="form-item"> 
-            <input type="number" name="MtdConv" id="MtdConv">
-            <label for="MtdConv">MTD Conversion</label>
-        </div>
-    
-        <div class="separator">=</div>
-    
         <div class="form-item">
-            <input type="number" name="EstTransGoalMtd" id="EstTransGoalMtd">
+            <input type="number" name="MtdConv" id="MtdConv" min="0" max="100" step="any" required>
+            <label for="MtdConv">MTD Conversion (%)</label>
+        </div>
+
+        <div class="separator">=</div>
+
+        <div class="form-item">
+            <input type="number" name="EstTransGoalMtd" id="EstTransGoalMtd" min="0" step="any" readonly>
             <label for="EstTransGoalMtd">Estimated Transaction Goal</label>
         </div>
-        <input TYPE="button" id="calc2" value="Calculate">
+        <input type="button" id="calc2" value="Calculate">
         <input type="button" id="reset2" value="Clear">
     </form>
 
     <form id="AdsGoal">
         <div class="form-item">
-            <input type="number" name="Plan" id="Plan">
-            <label for="Plan">Plan</label>
+            <input type="number" name="Plan" id="Plan" min="0" step="any" required>
+            <label for="Plan">Plan ($)</label>
          </div>
-    
+
         <div class="separator">/</div>
-    
+
         <div class="form-item">
-            <input type="number" name="EstTransGoal2" id="EstTransGoal2">
+            <input type="number" name="EstTransGoal2" id="EstTransGoal2" min="0" step="any">
             <label for="EstTransGoal2">Estimated Transaction Goal</label>
         </div>
-    
+
         <div class="separator">=</div>
-    
+
         <div class="form-item">
-            <input type="number" name="AdsGoalMtd" id="AdsGoalMtd">
-            <label for="AdsGoalMtd">ADS Goal</label>
+            <input type="number" name="AdsGoalMtd" id="AdsGoalMtd" min="0" step="any" readonly>
+            <label for="AdsGoalMtd">ADS Goal ($)</label>
         </div>
-        <input TYPE="button" id="calc3" value="Calculate">
+        <input type="button" id="calc3" value="Calculate">
         <input type="button" id="reset3" value="Clear">
     </form>
+    </section>
 
     <hr>
-    Conversion Goal
+
+    <section>
+        <h2>Conversion Goal</h2>
 
     <form id="TransConvUp">
         <div class="form-item">
-            <input type="number" name="LyConvUp" id="LyConvUp">
-            <label for="LyConvUp">LY Conversion + lift</label>
+            <input type="number" name="LyConvUp" id="LyConvUp" min="0" max="100" step="any" required>
+            <label for="LyConvUp">LY Conversion + lift (%)</label>
         </div>
 
-        <div class="separator">X</div> 
+        <div class="separator">X</div>
 
-    <form id="EstTraffic">
-        <div class="form-item"> 
-            <input type="number" name="EstTraff4" id="EstTraff4">
-            <label for="EstTraffConv">Estimated Traffic</label>
-        </div>
-    
-        <div class="separator">=</div>
-    
         <div class="form-item">
-            <input type="number" name="TransGoal" id="TransGoal">
+            <input type="number" name="EstTraff4" id="EstTraff4" min="0" step="any">
+            <label for="EstTraff4">Estimated Traffic</label>
+        </div>
+
+        <div class="separator">=</div>
+
+        <div class="form-item">
+            <input type="number" name="TransGoal" id="TransGoal" min="0" step="any" readonly>
             <label for="TransGoal">Transaction Goal</label>
         </div>
-        <input TYPE="button" id="calc4" value="Calculate">
+        <input type="button" id="calc4" value="Calculate">
         <input type="button" id="reset4" value="Clear">
     </form>
 
     <form id="AdsConvUp">
         <div class="form-item">
-            <input type="number" name="Plan2" id="Plan2">
-            <label for="Plan2">Plan</label>
+            <input type="number" name="Plan2" id="Plan2" min="0" step="any" required>
+            <label for="Plan2">Plan ($)</label>
         </div>
 
-        <div class="separator">/</div> 
+        <div class="separator">/</div>
 
-    <form id="EstTraffic">
-        <div class="form-item"> 
-            <input type="number" name="TransGoal2" id="TransGoal2">
+        <div class="form-item">
+            <input type="number" name="TransGoal2" id="TransGoal2" min="0" step="any">
             <label for="TransGoal2">Transaction Goal</label>
         </div>
-    
+
         <div class="separator">=</div>
-    
+
         <div class="form-item">
-            <input type="number" name="AdsUp" id="AdsUp">
-            <label for="AdsConvUp">ADS</label>
+            <input type="number" name="AdsUp" id="AdsUp" min="0" step="any" readonly>
+            <label for="AdsUp">ADS ($)</label>
         </div>
-        <input TYPE="button" id="calc5" value="Calculate">
+        <input type="button" id="calc5" value="Calculate">
         <input type="button" id="reset5" value="Clear">
     </form>
+    </section>
 
     <hr>
-    Flat/LY Conversion
+
+    <section>
+        <h2>Flat/LY Conversion</h2>
 
     <form id="TransConvFlat">
         <div class="form-item">
-            <input type="number" name="LyConvFlat" id="LyConvFlat">
-            <label for="LyConvFlat">LY Conversion + lift</label>
+            <input type="number" name="LyConvFlat" id="LyConvFlat" min="0" max="100" step="any" required>
+            <label for="LyConvFlat">LY Conversion + lift (%)</label>
         </div>
 
-        <div class="separator">X</div> 
+        <div class="separator">X</div>
 
-    <form id="EstTraffic">
-        <div class="form-item"> 
-            <input type="number" name="EstTraff5" id="EstTraff5">
+        <div class="form-item">
+            <input type="number" name="EstTraff5" id="EstTraff5" min="0" step="any">
             <label for="EstTraff5">Estimated Traffic</label>
         </div>
-    
+
         <div class="separator">=</div>
-    
+
         <div class="form-item">
-            <input type="number" name="TransGoalFlat" id="TransGoalFlat">
+            <input type="number" name="TransGoalFlat" id="TransGoalFlat" min="0" step="any" readonly>
             <label for="TransGoalFlat">Transaction Goal</label>
         </div>
-        <input TYPE="button" id="calc6" value="Calculate">
+        <input type="button" id="calc6" value="Calculate">
         <input type="button" id="reset6" value="Clear">
     </form>
 
     <form id="AdsConvFlat">
         <div class="form-item">
-            <input type="number" name="Plan3" id="Plan3">
-            <label for="Plan3">Plan</label>
+            <input type="number" name="Plan3" id="Plan3" min="0" step="any" required>
+            <label for="Plan3">Plan ($)</label>
         </div>
 
-        <div class="separator">/</div> 
+        <div class="separator">/</div>
 
-    <form id="EstTraffic">
-        <div class="form-item"> 
-            <input type="number" name="TransGoalFlat2" id="TransGoalFlat2">
+        <div class="form-item">
+            <input type="number" name="TransGoalFlat2" id="TransGoalFlat2" min="0" step="any">
             <label for="TransGoalFlat2">Transaction Goal</label>
         </div>
-    
+
         <div class="separator">=</div>
-    
+
         <div class="form-item">
-            <input type="number" name="AdsFlat" id="AdsFlat">
-            <label for="AdsFlat">ADS</label>
+            <input type="number" name="AdsFlat" id="AdsFlat" min="0" step="any" readonly>
+            <label for="AdsFlat">ADS ($)</label>
         </div>
-        <input TYPE="button" id="calc7" value="Calculate">
+        <input type="button" id="calc7" value="Calculate">
         <input type="button" id="reset7" value="Clear">
     </form>
+    </section>
 
-   
+    <div class="error-message" id="errorMessage" style="display: none;"></div>
+
     <input type="button" id="resetAll" value="Reset All">
+<script src="calculations.js"></script>
 <script src="index.js"></script>
 </body>
 </html>

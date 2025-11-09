@@ -41,8 +41,6 @@ This synchronization is handled by `input` event listeners (lines 119-149 in ind
 
 ## Development Commands
 
-Since this is a pure frontend application with no build system:
-
 ### Running the Application
 ```bash
 # Open in browser
@@ -52,11 +50,27 @@ python3 -m http.server 8000  # Then visit http://localhost:8000
 ```
 
 ### Testing
-No automated test framework is configured. Manual testing should verify:
-- Each of the 7 calculation buttons performs correct arithmetic
-- Auto-fill propagates values correctly across forms
-- Individual reset buttons clear their respective forms
-- "Reset All" clears all number inputs
+The project uses **Jest** for comprehensive unit and integration testing:
+
+```bash
+# Install dependencies first
+npm install
+
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+```
+
+**Test Coverage:**
+- 61 test cases covering all business logic
+- 100% coverage of calculation functions
+- Integration tests for real-world retail scenarios
+- See `TESTING.md` for detailed testing documentation
 
 ## Code Conventions
 

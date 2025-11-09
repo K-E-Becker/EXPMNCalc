@@ -1,37 +1,197 @@
+/* Global Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+}
 
-  #EstTraffic, #EstTransGoal, #AdsGoal, #TransConvUp, #AdsConvUp, #TransConvFlat, #AdsConvFlat {
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin: 30px 0;
+}
+
+/* Form Layouts */
+#EstTraffic, #EstTransGoal, #AdsGoal, #TransConvUp, #AdsConvUp, #TransConvFlat, #AdsConvFlat {
     display: flex;
-    align-items: flex-start; /* Align items at the top */
-    gap: 10px; /* Add space between elements */
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
 .form-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    min-width: 120px;
 }
 
 .separator {
     display: flex;
     align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #3498db;
+    margin-top: 20px;
 }
 
 .form-item label {
     margin-bottom: 4px;
     font-size: 12px;
     color: #666;
+    font-weight: 500;
 }
 
-/** remove incrementor **/
+/* Input Styles */
+input[type="number"] {
+    width: 140px;
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+input[type="number"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+input[type="number"]:invalid {
+    border-color: #e74c3c;
+}
+
+input[type="number"][readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Remove incrementor arrows */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Button Styles */
+input[type="button"] {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="button"][id^="calc"] {
+    background-color: #3498db;
+    color: white;
+}
+
+input[type="button"][id^="calc"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+input[type="button"][id^="calc"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="button"][id^="reset"] {
+    background-color: #95a5a6;
+    color: white;
+}
+
+input[type="button"][id^="reset"]:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+#resetAll {
+    background-color: #e74c3c;
+    color: white;
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    font-size: 16px;
+}
+
+#resetAll:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Error Message Styles */
+.error-message {
+    margin: 20px 0;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #EstTraffic, #EstTransGoal, #AdsGoal, #TransConvUp, #AdsConvUp, #TransConvFlat, #AdsConvFlat {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .separator {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .form-item {
+        min-width: 100%;
+    }
+
+    input[type="number"] {
+        width: 100%;
+    }
 }
