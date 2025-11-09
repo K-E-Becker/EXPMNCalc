@@ -21,6 +21,9 @@
   ],
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "devDependencies": {
     "@playwright/test": "^1.56.1",
     "@types/jest": "^29.5.12",
