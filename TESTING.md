@@ -225,7 +225,7 @@ When adding new calculations:
 
 This project includes automated testing via GitHub Actions. Every push to `main` and every pull request automatically runs:
 
-1. ✅ Unit tests (Jest) on Node.js 18.x and 20.x
+1. ✅ Unit tests (Jest) on Node.js 20.x, 22.x, and 24.x (latest LTS versions)
 2. ✅ Coverage report generation
 3. ✅ E2E tests (Playwright) in headless Chromium
 4. ✅ Playwright test report uploads
