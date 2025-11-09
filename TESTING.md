@@ -151,15 +151,34 @@ When adding new calculations:
 
 ## CI/CD Integration
 
-These tests can be integrated into CI/CD pipelines:
+### GitHub Actions
 
-```yaml
-# Example GitHub Actions
-- name: Run Tests
-  run: npm test
+This project includes automated testing via GitHub Actions. Every push to `main` and every pull request automatically runs:
 
-- name: Check Coverage
-  run: npm run test:coverage
+1. ✅ Full test suite on Node.js 18.x and 20.x
+2. ✅ Coverage report generation
+3. ✅ Optional Codecov integration
+
+**Workflow File:** `.github/workflows/test.yml`
+
+**View Results:**
+- Go to the **Actions** tab in your GitHub repository
+- Each push/PR will show test results
+- Failed tests will block PR merges (if branch protection is enabled)
+
+**Status Badge:**
+Add this to a README.md to show test status:
+```markdown
+![Tests](https://github.com/K-E-Becker/EXPMNCalc/actions/workflows/test.yml/badge.svg)
+```
+
+### Local CI Testing
+
+You can simulate CI locally using:
+```bash
+npm ci              # Clean install (like CI does)
+npm test            # Run tests
+npm run test:coverage  # Generate coverage
 ```
 
 ## Notes
